@@ -1,0 +1,98 @@
+:root {
+  --white: #ffffff;
+  --gray: #dcdcdc;
+  --blue: #002772;
+  --dark-blue: #001b4e;
+  --light-blue: #d6e6ff;
+  --violet: #720060;
+  --dark-violet: #500044;
+  --light-violet: #fde2ff;
+  --font-description-color: #1e1e1e;
+  --font-category-color: #3f3f3f;
+  --bg-blue-dark: #95afd6;
+  --bg-purple-dark: #c5a5c8;
+  --bg-bottom-dark: #303030;
+}
+
+/* Global */
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Dynamic Color Background */
+.bg-light-men {
+  background-color: var(--light-blue);
+}
+.bg-light-women {
+  background-color: var(--light-violet);
+}
+.bg-dark-men {
+  background-color: var(--bg-blue-dark);
+}
+.bg-dark-women {
+  background-color: var(--bg-purple-dark);
+}
+
+/* Dynamic Bottom Color */
+.bg-light {
+  background-color: var(--white);
+}
+.bg-dark {
+  background-color: var(--bg-bottom-dark);
+}
+
+/* Dynamic Color */
+.color-men {
+  color: var(--blue);
+}
+.color-women {
+  color: var(--violet);
+}
+
+/* Mobile Layout */
+.background {
+  width: 100%;
+  background-image: url('../img/bg-pattern.svg');
+  background-size: cover;
+  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background-bottom {
+  position: fixed;
+  bottom: 0;
+  height: 30%;
+  width: 100%;
+}
+
+/* Tablet Layout */
+@media only screen and (min-width: 600px) and (max-width: 991px) {
+}
+
+/* Desktop Layout */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .background {
+    height: 100vh;
+  }
+}
+
+/* Large Desktop Layout */
+@media only screen and (min-width: 1200px) {
+  .background {
+    height: 100vh;
+  }
+}
+
+/* Extra Large Desktop Layout */
+@media only screen and (min-width: 2560px) {
+  .background {
+    height: 100vh;
+  }
+}

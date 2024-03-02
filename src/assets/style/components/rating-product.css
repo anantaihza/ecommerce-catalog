@@ -1,0 +1,41 @@
+.rating-score {
+    color: var(--font-category-color);
+    font-size: 18px;
+    font-weight: 400;
+}
+rating-star {
+    font-size: 18px;
+}
+.ratings {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
+}
+.star {
+    margin-left: 2px;
+}
+
+/* Desktop Layout */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .ratings {
+        flex-direction: row;
+    }
+  }
+
+/* Large Desktop Layout */
+@media only screen and (min-width: 1200px) {
+    .ratings {
+        flex-direction: row;
+    }
+  }
+
+  /* Extra Large Desktop Layout */
+  @media only screen and (min-width: 2560px)  {
+    .rating-score, .rating-star {
+        font-size: 36px;
+    }
+    .ratings {
+        flex-direction: row;
+    }
+  }

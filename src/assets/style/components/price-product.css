@@ -1,0 +1,10 @@
+.price h3 {
+    font-size: 28px;
+    font-weight: 600;
+}
+/* Extra Large Desktop Layout */
+@media only screen and (min-width: 2560px)  {
+    .price h3 {
+        font-size: 56px;
+    }
+  }

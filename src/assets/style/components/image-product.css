@@ -1,0 +1,47 @@
+/* Mobile Layout */
+.container-product-img {
+  text-align: center;
+  margin-block: 74px;
+}
+.product-img {
+  width: 180px;
+}
+
+/* Desktop Layout */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .container-product-img {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-img {
+        width: 300px;
+    }
+  }
+
+/* Large Desktop Layout */
+@media only screen and (min-width: 1200px) {
+    .container-product-img {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-img {
+        width: 360px;
+    }
+  }
+
+  /* Extra Large Desktop Layout */
+  @media only screen and (min-width: 2560px)  {
+    .container-product-img {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-img {
+        width: 640px;
+    }
+  }

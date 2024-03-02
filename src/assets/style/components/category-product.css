@@ -1,0 +1,15 @@
+.category {
+    color: var(--font-category-color);
+    font-size: 18px;
+    font-weight: 400;
+}
+.category p {
+    margin: 0;
+}
+
+/* Extra Large Desktop Layout */
+@media only screen and (min-width: 2560px)  {
+    .category {
+        font-size: 36px;
+    }
+  }

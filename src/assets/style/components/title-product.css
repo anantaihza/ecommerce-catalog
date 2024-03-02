@@ -1,0 +1,45 @@
+/* Mobile Layout */
+.sm-content {
+    display: block;
+}
+.lg-content {
+    display: none;
+}
+
+.title-content {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Desktop Layout */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .sm-content {
+        display: none;
+    }
+    .lg-content {
+        display: block;
+    }
+  }
+
+/* Large Desktop Layout */
+@media only screen and (min-width: 1200px) {
+    .sm-content {
+        display: none;
+    }
+    .lg-content {
+        display: block;
+    }
+  }
+
+  /* Extra Large Desktop Layout */
+  @media only screen and (min-width: 2560px)  {
+    .title-content {
+        font-size: 56px;
+    }
+    .sm-content {
+        display: none;
+    }
+    .lg-content {
+        display: block;
+    }
+  }

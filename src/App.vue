@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main :class="`background bg-${theme}-${gender}`">
+      <CardProduct :product="product" :gender="gender" />
+      <div :class="`background-bottom bg-${theme}`"></div>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import getProductAPI from '@/utils/network-data';
+import CardProduct from './components/CardProduct.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    CardProduct,
+  },
+  data() {
+    return {
+      product_id: 1,
+      product: {},
+      gender: 'men',
+      theme: 'light',
+    };
+  },
+  mounted() {
+    this.getProduct(this.product_id);
+  },
+  methods: {
+    async getProduct(id) {
+      const response = await getProductAPI(id);
+      this.product = response;
+    },
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="@/assets/style/page.css"></style>

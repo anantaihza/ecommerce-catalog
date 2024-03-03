@@ -1,5 +1,5 @@
 <template>
-  <button :class="`btn btn-${btnType}-${gender}`">
+  <button :class="`btn btn-${btnType}-${gender}`" @click="triggerNextProduct">
     <slot></slot>
   </button>
 </template>
@@ -33,7 +33,9 @@ export default {
   },
 
   methods: {
-
+    triggerNextProduct() {
+      this.$emit('nextProductEvent');
+    },
   },
 };
 </script>

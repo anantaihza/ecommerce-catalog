@@ -6,13 +6,19 @@
       <TitleProduct :title="product.title" display="lg" :gender="gender" />
       <div class="container-category-rating">
         <CategoryProduct :category="product.category" />
-        <RatingProduct :rating="product.rating.rate" :gender="gender" />
+        <RatingProduct :rating="product.rating.rate" :stars="product.stars" :gender="gender" />
       </div>
       <DescriptionProduct :description="product.description" />
       <PriceProduct :price="product.price" :gender="gender" />
       <div class="container-btn">
         <ButtonProduct btnType="solid" :gender="gender">Buy Now</ButtonProduct>
-        <ButtonProduct btnType="outline" :gender="gender">Next Product</ButtonProduct>
+        <ButtonProduct
+          btnType="outline"
+          :gender="gender"
+          @nextProductEvent="triggerNextProduct"
+        >
+          Next Product
+        </ButtonProduct>
       </div>
     </div>
   </div>
@@ -59,6 +65,9 @@ export default {
   mounted() {
   },
   methods: {
+    triggerNextProduct() {
+      this.$emit('nextProductEvent');
+    },
   },
 };
 </script>

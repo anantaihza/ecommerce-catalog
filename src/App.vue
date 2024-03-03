@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <NavbarProduct :gender="gender" :theme="theme" @themeEvent="setTheme" />
     <main :class="`background bg-${theme}-${gender}`">
-      <CardProduct :product="product" :gender="gender" />
+      <CardProduct :product="product" :gender="gender" @nextProductEvent="nextProduct" />
       <div :class="`background-bottom bg-${theme}`"></div>
     </main>
   </div>
@@ -10,18 +11,21 @@
 <script>
 import getProductAPI from '@/utils/network-data';
 import CardProduct from './components/CardProduct.vue';
+import NavbarProduct from './components/NavbarProduct.vue';
 
 export default {
   name: 'App',
   components: {
+    NavbarProduct,
     CardProduct,
   },
   data() {
     return {
-      product_id: 1,
       product: {},
-      gender: 'men',
+      product_id: 1,
+      gender: 'other',
       theme: 'light',
+      // icon: 'fa-moon',
     };
   },
   mounted() {
@@ -31,6 +35,46 @@ export default {
     async getProduct(id) {
       const response = await getProductAPI(id);
       this.product = response;
+
+      const { category } = this.product;
+      if (category === 'men\'s clothing') {
+        this.setGender('men');
+      } else if (category === 'women\'s clothing') {
+        this.setGender('women');
+      } else {
+        this.setGender('other');
+      }
+
+      this.product.stars = this.getStar();
+    },
+    getStar() {
+      const star = [];
+      const solidStar = Math.floor(this.product.rating.rate);
+      const outlineStar = 5 - solidStar;
+      for (let i = 0; i < solidStar; i += 1) {
+        star.push('fa-solid fa-circle');
+      }
+      if (solidStar < 5) {
+        for (let i = 0; i < outlineStar; i += 1) {
+          star.push('fa-regular fa-circle');
+        }
+      }
+      return star;
+    },
+    nextProduct() {
+      if (this.product_id === 20) {
+        this.product_id = 1;
+      } else {
+        this.product_id += 1;
+      }
+      this.getProduct(this.product_id);
+    },
+    setGender(gender) {
+      this.gender = gender;
+    },
+    setTheme(theme) {
+      this.theme = theme;
+      // this.icon = this.icon === 'fa-moon' ? 'fa-sun' : 'fa-moon';
     },
   },
 };

@@ -1,6 +1,7 @@
 /* Mobile Layout */
 .sm-content {
     display: block;
+    margin-top: 50px;
 }
 .lg-content {
     display: none;
@@ -10,6 +11,12 @@
     font-size: 28px;
     font-weight: 700;
 }
+/* Tablet Layout */
+@media only screen and (min-width: 600px) and (max-width: 991px) {
+    .sm-content {
+        margin-top: 0;
+    }
+  }
 
 /* Desktop Layout */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {

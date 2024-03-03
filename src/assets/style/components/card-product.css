@@ -47,9 +47,6 @@
 
 /* Tablet Layout */
 @media only screen and (min-width: 600px) and (max-width: 991px) {
-  .container-card {
-    padding-top: 35%;
-  }
   .card {
     width: 85%;
     height: fit-content;
@@ -71,6 +68,7 @@
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+    margin-top: 35%;
    ;
   }
 }

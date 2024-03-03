@@ -25,7 +25,7 @@ export default {
       product: {},
       product_id: 1,
       gender: 'other',
-      theme: 'light',
+      theme: localStorage.getItem('theme') || 'light',
       isLoading: true,
       totalProduct: 0,
     };
@@ -53,7 +53,6 @@ export default {
     },
     async getAllProduct() {
       const response = await getAllProductAPI();
-      // console.log(response.length);
       this.totalProduct = response.length;
     },
     getStar() {
@@ -86,6 +85,7 @@ export default {
     },
     setTheme(theme) {
       this.theme = theme;
+      localStorage.setItem('theme', theme);
     },
   },
 };

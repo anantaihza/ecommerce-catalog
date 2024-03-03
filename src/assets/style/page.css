@@ -84,6 +84,22 @@ body {
 
 /* Tablet Layout */
 @media only screen and (min-width: 600px) and (max-width: 991px) {
+  .background {
+    width: 100%;
+    height: fit-content;
+    background-image: url('../img/bg-pattern.svg');
+    background-size: cover;
+    background-repeat: repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .background-bottom {
+    position: fixed;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+  }
 }
 
 /* Desktop Layout */

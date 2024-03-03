@@ -16,7 +16,6 @@ export default {
     },
     display: {
       type: String,
-      required: true,
       validator(value) {
         return ['sm', 'lg'].includes(value);
       },

@@ -1,13 +1,35 @@
 /* Mobile Layout */
+.container-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card {
   width: 100%;
   height: 100%;
   z-index: 2;
-  padding: 30px;
+  padding: 400px 30px 40px;
   background-color: var(--white);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: auto;
 }
+.card-other {
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  padding: 30px;
+  background-color: var(--white);
+  background-image: url('../../img/Frame-1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .container-category-rating {
   display: flex;
   flex-direction: row;
@@ -19,20 +41,37 @@
   flex-direction: column;
   gap: 13px;
 }
+.card-other-content {
+  text-align: center;
+}
 
 /* Tablet Layout */
 @media only screen and (min-width: 600px) and (max-width: 991px) {
+  .container-card {
+    padding-top: 35%;
+  }
   .card {
     width: 85%;
     height: fit-content;
     margin-block-start: 100px;
     margin-block-end: 50px;
+    padding: 40px;
     overflow: visible;
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+  }
+  .card-other {
+    width: 600px;
+    height: 300px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+   ;
   }
 }
 
@@ -54,12 +93,24 @@
     flex-direction: row;
     gap: 13px;
   }
+  .container-product-content {
+    width: 50%;
+  }
+  .card-other {
+    height: 60vh;
+    width: 80vw;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
 }
 
 /* Large Desktop Layout */
 @media only screen and (min-width: 1200px) {
   .card {
-    width: 75%;
+    width: 70%;
     height: fit-content;
     display: flex;
     justify-content: space-between;
@@ -76,18 +127,27 @@
     gap: 13px;
   }
   .container-product-content {
-    width: 55%;
+    width: 45%;
+  }
+  .card-other {
+    height: 60vh;
+    width: 70vw;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
   }
 }
 
 /* Extra Large Desktop Layout */
 @media only screen and (min-width: 2560px) {
   .card {
-    width: 85%;
+    width: 80%;
     height: fit-content;
     display: flex;
     gap: 120px;
-    padding: 80px 130px;
+    padding: 70px 130px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -100,5 +160,14 @@
   }
   .container-product-content {
     width: 55%;
+  }
+  .card-other {
+    height: 60vh;
+    width: 80vw;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
   }
 }

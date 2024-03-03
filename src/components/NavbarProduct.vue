@@ -6,7 +6,7 @@
       </div>
 
       <ul class="list-navigation">
-        <li class="navigation">
+        <li class="">
           <button v-html="icon" :class="`btn-nav color-${gender}`" @click="triggerTheme"></button>
         </li>
       </ul>
@@ -36,16 +36,16 @@ export default {
 
   data() {
     return {
-      icon: '<i class="fa-regular fa-moon"></i>',
+      icon: '<i class="navigation fa-regular fa-moon"></i>',
     };
   },
 
   methods: {
     triggerTheme() {
       const newTheme = this.theme === 'light' ? 'dark' : 'light';
-      this.icon = this.icon === '<i class="fa-regular fa-moon"></i>'
-        ? '<i class="fa-regular fa-sun"></i>'
-        : '<i class="fa-regular fa-moon"></i>';
+      this.icon = this.icon === '<i class="navigation fa-regular fa-moon"></i>'
+        ? '<i class="navigation fa-regular fa-sun"></i>'
+        : '<i class="navigation fa-regular fa-moon"></i>';
 
       this.$emit('themeEvent', newTheme);
     },

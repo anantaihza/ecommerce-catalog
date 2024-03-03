@@ -1,10 +1,12 @@
 header {
   z-index: 10;
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.295);
+  backdrop-filter: blur(10px); 
   top: 0;
   position: fixed;
   width: 100%;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -29,27 +31,25 @@ header {
   font-size: 18px;
 }
 
-/* Tablet Layout */
-@media only screen and (min-width: 600px) and (max-width: 991px) {
-  header {
-    background-color: transparent;
-  }
-}
 /* Desktop Layout */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   header {
     background-color: transparent;
+    backdrop-filter: blur(0);
   }
 }
 /* Large Desktop Layout */
 @media only screen and (min-width: 1200px) {
   header {
     background-color: transparent;
+    backdrop-filter: blur(0);
   }
 }
+/* Extra Large Desktop Layout */
 @media only screen and (min-width: 2560px) {
   header {
     background-color: transparent;
+    backdrop-filter: blur(0);
   }
   .list-navigation {
     margin: 40px;

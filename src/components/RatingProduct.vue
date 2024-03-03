@@ -1,8 +1,9 @@
 <template>
   <div class="ratings">
     <div class="rating-score">{{ rating }}/5</div>
-    <div v-for="star in stars" :key="rating + star" :class="`rating-star color-${gender}`">
-      <i :class="`star ${star}`"></i>
+    <div v-for="(star, index) in stars"
+    :key="rating + star + index" :class="`rating-star color-${gender}`">
+      <i :class="`star ${star} fa-circle`"></i>
     </div>
   </div>
 </template>

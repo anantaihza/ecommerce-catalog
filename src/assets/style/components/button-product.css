@@ -57,6 +57,17 @@
   cursor: pointer;
 }
 
+.btn-outline-other {
+  background-color: transparent;
+  border: 3px solid var(--font-description-color);
+  color: var(--font-description-color);
+}
+.btn-outline-other:hover {
+  background-color: var(--font-description-color);
+  color: var(--white);
+  cursor: pointer;
+}
+
 /* Extra Large Desktop Layout */
   @media only screen and (min-width: 2560px)  {
     .btn {

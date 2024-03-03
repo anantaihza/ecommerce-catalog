@@ -2,14 +2,15 @@
   <div id="app">
     <NavbarProduct :gender="gender" :theme="theme" @themeEvent="setTheme" />
     <main :class="`background bg-${theme}-${gender}`">
-      <CardProduct :product="product" :gender="gender" @nextProductEvent="nextProduct" />
+      <CardProduct :product="product" :totalProduct="totalProduct"
+        :gender="gender" :isLoading="isLoading" @nextProductEvent="nextProduct" />
       <div :class="`background-bottom bg-${theme}`"></div>
     </main>
   </div>
 </template>
 
 <script>
-import getProductAPI from '@/utils/network-data';
+import { getAllProductAPI, getProductAPI } from '@/utils/network-data';
 import CardProduct from './components/CardProduct.vue';
 import NavbarProduct from './components/NavbarProduct.vue';
 
@@ -25,11 +26,13 @@ export default {
       product_id: 1,
       gender: 'other',
       theme: 'light',
-      // icon: 'fa-moon',
+      isLoading: true,
+      totalProduct: 0,
     };
   },
   mounted() {
     this.getProduct(this.product_id);
+    this.getAllProduct();
   },
   methods: {
     async getProduct(id) {
@@ -46,22 +49,31 @@ export default {
       }
 
       this.product.stars = this.getStar();
+      this.isLoading = false;
+    },
+    async getAllProduct() {
+      const response = await getAllProductAPI();
+      // console.log(response.length);
+      this.totalProduct = response.length;
     },
     getStar() {
       const star = [];
       const solidStar = Math.floor(this.product.rating.rate);
       const outlineStar = 5 - solidStar;
       for (let i = 0; i < solidStar; i += 1) {
-        star.push('fa-solid fa-circle');
+        star.push('fa-solid');
       }
       if (solidStar < 5) {
         for (let i = 0; i < outlineStar; i += 1) {
-          star.push('fa-regular fa-circle');
+          star.push('fa-regular');
         }
       }
       return star;
     },
     nextProduct() {
+      this.isLoading = true;
+      this.setGender('other');
+
       if (this.product_id === 20) {
         this.product_id = 1;
       } else {
@@ -74,7 +86,6 @@ export default {
     },
     setTheme(theme) {
       this.theme = theme;
-      // this.icon = this.icon === 'fa-moon' ? 'fa-sun' : 'fa-moon';
     },
   },
 };

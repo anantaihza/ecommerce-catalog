@@ -49,6 +49,7 @@ export default {
     },
     deteleCartId(id) {
       const newCart = this.cart.filter((product) => product.id !== id);
+      this.cart = newCart;
       localStorage.setItem('cart', JSON.stringify(newCart));
     },
   },

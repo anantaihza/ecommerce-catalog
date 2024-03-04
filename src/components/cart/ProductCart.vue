@@ -14,7 +14,7 @@
       <p>{{ quantity }}</p>
     </div>
     <div class="delete-product">
-      <button class="btn-delete" @click="triggerDeteleCartId">
+      <button class="btn-delete" @click="triggerDeleteCartId">
         <i class="fa-solid fa-trash"></i>
       </button>
     </div>
@@ -37,9 +37,8 @@ export default {
   },
 
   methods: {
-    triggerDeteleCartId() {
+    triggerDeleteCartId() {
       this.$emit('deteleCartIdEvent', this.product.id);
-      window.location.reload();
     },
   },
 };

@@ -62,3 +62,6 @@ body {
 .color-women {
   color: var(--violet);
 }
+.color-other {
+  color: var(--font-description-color);
+}

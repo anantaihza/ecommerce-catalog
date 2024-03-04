@@ -16,12 +16,16 @@
 
       <ul class="list-navigation">
         <li>
-          <button v-html="icon" :class="`btn-nav color-${gender}`" @click="triggerTheme"></button>
+          <button
+            v-html="icon"
+            :class="`btn-nav color-${gender}`"
+            @click="triggerTheme"
+          ></button>
         </li>
         <li>
           <router-link to="/cart" :class="`btn-nav color-${gender}`">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span v-if="totalCart > 0" class="badge">{{ totalCart }}</span>
+            <span v-if="totalCart" class="badge">{{ totalCart }}</span>
           </router-link>
         </li>
       </ul>
@@ -32,6 +36,7 @@
 <script>
 export default {
   name: 'NavbarProduct',
+
   props: {
     gender: {
       type: String,
@@ -68,7 +73,6 @@ export default {
 
       this.$emit('themeEvent', newTheme);
     },
-
   },
 };
 </script>

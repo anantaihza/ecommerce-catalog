@@ -1,14 +1,21 @@
 <template>
   <div :class="`cart-view bg-${theme}-${gender}`">
-    <NavbarProduct :gender="gender" :theme="theme" :totalCart="totalCart" @themeEvent="setTheme" />
-    <CardCart :cart="cart" @deteleCartIdEvent="deteleCartId" />
+    <NavbarProduct
+      :gender="gender"
+      :theme="theme"
+      :totalCart="totalCart"
+      @themeEvent="setTheme"
+    />
+    <CardCart
+      :cart="cart"
+      @deteleCartIdEvent="deteleCartId"
+    />
   </div>
 </template>
 
 <script>
-import NavbarProduct from '@/components/category/NavbarProduct.vue';
-
 import CardCart from '@/components/cart/CardCart.vue';
+import NavbarProduct from '@/components/category/NavbarProduct.vue';
 
 export default {
   name: 'CartView',
@@ -24,10 +31,6 @@ export default {
       gender: localStorage.getItem('gender') || 'other',
       cart: JSON.parse(localStorage.getItem('cart')) || [],
     };
-  },
-
-  mounted() {
-
   },
 
   computed: {

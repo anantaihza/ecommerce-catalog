@@ -33,20 +33,6 @@
 <script>
 export default {
   name: 'SkeletonProduct',
-
-  data() {
-    return {
-
-    };
-  },
-
-  mounted() {
-
-  },
-
-  methods: {
-
-  },
 };
 </script>
 

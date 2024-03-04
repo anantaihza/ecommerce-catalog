@@ -14,21 +14,8 @@ export default {
       required: true,
     },
   },
-
-  data() {
-    return {
-
-    };
-  },
-
-  mounted() {
-
-  },
-
-  methods: {
-
-  },
 };
+
 </script>
 
 <style src="@/assets/style/components/category/category-product.css"></style>

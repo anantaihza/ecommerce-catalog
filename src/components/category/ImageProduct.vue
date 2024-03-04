@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'ImageProduct',
+
   props: {
     image: {
       type: String,
@@ -15,19 +16,6 @@ export default {
     alt: {
       type: String,
     },
-  },
-
-  data() {
-    return {
-    };
-  },
-
-  mounted() {
-
-  },
-
-  methods: {
-
   },
 };
 </script>

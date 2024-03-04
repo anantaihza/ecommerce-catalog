@@ -8,16 +8,28 @@
         <TitleProduct :title="product.title" display="lg" :gender="gender" />
         <div class="container-category-rating">
           <CategoryProduct :category="product.category" />
-          <RatingProduct :rating="product.rating.rate" :stars="product.stars" :gender="gender" />
+          <RatingProduct
+            :rating="product.rating.rate"
+            :stars="product.stars"
+            :gender="gender"
+          />
         </div>
         <DescriptionProduct :description="product.description" />
         <PriceProduct :price="product.price" :gender="gender" />
         <div class="container-btn">
-          <ButtonProduct btnType="solid" :gender="gender"
-            :product="product" @buyNowEvent="triggerBuyNow">
+          <ButtonProduct
+            btnType="solid"
+            :gender="gender"
+            :product="product"
+            @buyNowEvent="triggerBuyNow"
+          >
             Buy Now
           </ButtonProduct>
-          <ButtonProduct btnType="outline" :gender="gender" @nextProductEvent="triggerNextProduct">
+          <ButtonProduct
+            btnType="outline"
+            :gender="gender"
+            @nextProductEvent="triggerNextProduct"
+          >
             Next Product
           </ButtonProduct>
         </div>
@@ -29,7 +41,11 @@
         <TitleProduct :title="`${product.id} / ${totalProduct}`" :gender="gender" />
         <br><br>
         <p>This product is unavailable to show</p>
-        <ButtonProduct btnType="outline" :gender="gender" @nextProductEvent="triggerNextProduct">
+        <ButtonProduct
+          btnType="outline"
+          :gender="gender"
+          @nextProductEvent="triggerNextProduct"
+        >
           Next Product
         </ButtonProduct>
       </div>
@@ -38,28 +54,29 @@
 </template>
 
 <script>
-
 import ImageProduct from './ImageProduct.vue';
 import TitleProduct from './TitleProduct.vue';
 import PriceProduct from './PriceProduct.vue';
 import RatingProduct from './RatingProduct.vue';
 import ButtonProduct from './ButtonProduct.vue';
 import CategoryProduct from './CategoryProduct.vue';
-import DescriptionProduct from './DescriptionProduct.vue';
 import SkeletonProduct from './SkeletonProduct.vue';
+import DescriptionProduct from './DescriptionProduct.vue';
 
 export default {
   name: 'CardProduct',
+
   components: {
     TitleProduct,
     ImageProduct,
-    CategoryProduct,
-    RatingProduct,
-    DescriptionProduct,
     PriceProduct,
+    RatingProduct,
     ButtonProduct,
+    CategoryProduct,
     SkeletonProduct,
+    DescriptionProduct,
   },
+
   props: {
     product: {
       type: Object,
@@ -81,12 +98,7 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-    };
-  },
-  mounted() {
-  },
+
   methods: {
     triggerNextProduct() {
       this.$emit('nextProductEvent');
@@ -95,6 +107,7 @@ export default {
       this.$emit('buyNowEvent');
     },
   },
+
   computed: {
     isCategoryMenOrWomen() {
       return this.product.category === 'men\'s clothing' || this.product.category === 'women\'s clothing';
@@ -104,6 +117,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style src="@/assets/style/components/category/card-product.css"></style>

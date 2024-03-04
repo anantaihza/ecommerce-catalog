@@ -1,8 +1,8 @@
 .description-content {
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--font-description-color);
-    margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--font-description-color);
+  margin: 0;
 }
 
 /* Tablet Layout */
@@ -10,29 +10,29 @@
   .description-content {
     height: 75px;
     overflow: auto;
-}
+  }
 }
 /* Desktop Layout */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .description-content {
-        height: 120px;
-        overflow: auto;
-    }
+  .description-content {
+    height: 120px;
+    overflow: auto;
   }
+}
 
 /* Large Desktop Layout */
 @media only screen and (min-width: 1200px) {
-    .description-content {
-        height: 180px;
-        overflow: auto;
-    }
+  .description-content {
+    height: 180px;
+    overflow: auto;
   }
+}
 
-  /* Extra Large Desktop Layout */
-  @media only screen and (min-width: 2560px)  {   
-    .description-content {
-        font-size: 40px;
-        height: 200px;
-        overflow: auto;
-    }
+/* Extra Large Desktop Layout */
+@media only screen and (min-width: 2560px) {
+  .description-content {
+    font-size: 40px;
+    height: 200px;
+    overflow: auto;
   }
+}

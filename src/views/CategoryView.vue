@@ -1,14 +1,20 @@
 <template>
   <div class="category-view">
-    <NavbarProduct :gender="gender" :theme="theme"
-      :totalCart="totalCart" @themeEvent="setTheme" />
+    <NavbarProduct
+      :gender="gender"
+      :theme="theme"
+      :totalCart="totalCart"
+      @themeEvent="setTheme"
+    />
     <main :class="`background bg-${theme}-${gender}`">
       <CardProduct
         :product="product"
         :totalProduct="totalProduct"
-        :gender="gender" :isLoading="isLoading"
+        :gender="gender"
+        :isLoading="isLoading"
         @nextProductEvent="nextProduct"
-        @buyNowEvent="addProductToCart" />
+        @buyNowEvent="addProductToCart"
+      />
       <div :class="`background-bottom bg-${theme}`"></div>
     </main>
   </div>
@@ -16,15 +22,17 @@
 
 <script>
 import { getAllProductAPI, getProductAPI } from '@/utils/network-data';
-import CardProduct from '@/components/category/CardProduct.vue';
 import NavbarProduct from '@/components/category/NavbarProduct.vue';
+import CardProduct from '@/components/category/CardProduct.vue';
 
 export default {
-  name: 'App',
+  name: 'CategoryView',
+
   components: {
     NavbarProduct,
     CardProduct,
   },
+
   data() {
     return {
       product: {},
@@ -36,10 +44,12 @@ export default {
       cart: JSON.parse(localStorage.getItem('cart')) || [],
     };
   },
+
   mounted() {
     this.getProduct(this.product_id);
     this.getAllProduct();
   },
+
   computed: {
     totalCart() {
       if (this.cart.length === 0) {
@@ -48,6 +58,7 @@ export default {
       return this.cart.length;
     },
   },
+
   methods: {
     async getProduct(id) {
       const response = await getProductAPI(id);

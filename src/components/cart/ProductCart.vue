@@ -23,7 +23,8 @@
 
 <script>
 export default {
-  name: 'EcommerceProductCart',
+  name: 'ProductCart',
+
   props: {
     product: {
       type: Object,
@@ -35,16 +36,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-
-    };
-  },
-
-  mounted() {
-
-  },
-
   methods: {
     triggerDeteleCartId() {
       this.$emit('deteleCartIdEvent', this.product.id);
@@ -52,6 +43,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style src="@/assets/style/components/cart/product-cart.css"></style>

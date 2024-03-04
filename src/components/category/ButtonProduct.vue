@@ -1,12 +1,18 @@
 <template>
-    <button v-if="btnType === 'outline'"
-      :class="`btn btn-${btnType}-${gender}`" @click="triggerNextProduct">
-      <slot></slot>
-    </button>
-    <button v-else-if="btnType === 'solid'"
-      :class="`btn btn-${btnType}-${gender}`" @click="triggerBuyNow">
-      <slot></slot>
-    </button>
+  <button
+    v-if="btnType === 'outline'"
+    :class="`btn btn-${btnType}-${gender}`"
+    @click="triggerNextProduct"
+  >
+    <slot></slot>
+  </button>
+  <button
+    v-else-if="btnType === 'solid'"
+    :class="`btn btn-${btnType}-${gender}`"
+    @click="triggerBuyNow"
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -30,15 +36,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-    };
-  },
-
-  mounted() {
-
-  },
-
   methods: {
     triggerNextProduct() {
       this.$emit('nextProductEvent');
@@ -48,6 +45,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style src="@/assets/style/components/category/button-product.css"></style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="`price color-${gender}`">
+  <div :class="`price-product color-${gender}`">
     <h3>${{ price }}</h3>
   </div>
 </template>

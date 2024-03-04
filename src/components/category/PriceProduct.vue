@@ -20,4 +20,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/price-product.css"></style>
+<style src="@/assets/style/components/category/price-product.css"></style>

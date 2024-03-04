@@ -21,4 +21,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/description-product.css"></style>
+<style src="@/assets/style/components/category/description-product.css"></style>

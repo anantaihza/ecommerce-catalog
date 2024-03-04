@@ -1,0 +1,35 @@
+.cart-view {
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  background-image: url('../img/bg-pattern.svg');
+  background-size: cover;
+  background-repeat: repeat;
+}
+.card-cart {
+  padding: 80px 30px 50px;
+}
+
+/* Desktop Layout */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .card-cart {
+    padding: 80px 50px 50px;
+  }
+}
+
+/* Large Desktop Layout */
+@media only screen and (min-width: 1200px) {
+  .card-cart {
+    padding: 80px 80px 50px;
+  }
+}
+
+/* Extra Large Desktop Layout */
+@media only screen and (min-width: 2560px) {
+  .card-cart {
+    padding: 150px 100px 50px;
+  }
+  .header-card {
+    font-size: 30px;
+  }
+}

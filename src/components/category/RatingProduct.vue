@@ -28,4 +28,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/rating-product.css"></style>
+<style src="@/assets/style/components/category/rating-product.css"></style>

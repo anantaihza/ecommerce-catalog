@@ -31,4 +31,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/category-product.css"></style>
+<style src="@/assets/style/components/category/category-product.css"></style>

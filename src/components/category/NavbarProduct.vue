@@ -1,13 +1,28 @@
 <template>
   <header :class="`color-${gender}`">
     <nav class="navbar">
-      <div class="brand">
-        <h4>TokoIdea</h4>
+      <div class="left-nav">
+        <div class="brand">
+          <h4>TokoIdea</h4>
+        </div>
+        <ul class="list-navigation">
+          <li>
+            <router-link to="/" :class="`btn-nav color-${gender}`">
+              <i class="fa-solid fa-house"></i>
+            </router-link>
+          </li>
+        </ul>
       </div>
 
       <ul class="list-navigation">
-        <li class="">
+        <li>
           <button v-html="icon" :class="`btn-nav color-${gender}`" @click="triggerTheme"></button>
+        </li>
+        <li>
+          <router-link to="/cart" :class="`btn-nav color-${gender}`">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge">1</span>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -54,4 +69,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/navbar-product.css"></style>
+<style src="@/assets/style/components/category/navbar-product.css"></style>

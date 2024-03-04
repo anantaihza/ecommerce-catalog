@@ -50,4 +50,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/skeleton-product.css"></style>
+<style src="@/assets/style/components/category/skeleton-product.css"></style>

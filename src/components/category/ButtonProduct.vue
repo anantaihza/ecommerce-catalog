@@ -40,4 +40,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/button-product.css"></style>
+<style src="@/assets/style/components/category/button-product.css"></style>

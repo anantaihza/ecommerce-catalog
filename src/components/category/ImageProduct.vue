@@ -32,4 +32,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/image-product.css"></style>
+<style src="@/assets/style/components/category/image-product.css"></style>

@@ -24,6 +24,7 @@
       <div class="card-other-content">
         <TitleProduct title="Product" :gender="gender" />
         <TitleProduct :title="`${product.id} / ${totalProduct}`" :gender="gender" />
+        <br><br>
         <p>This product is unavailable to show</p>
         <ButtonProduct btnType="outline" :gender="gender" @nextProductEvent="triggerNextProduct">
           Next Product
@@ -99,4 +100,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/components/card-product.css"></style>
+<style src="@/assets/style/components/category/card-product.css"></style>

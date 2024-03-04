@@ -13,7 +13,10 @@
         <DescriptionProduct :description="product.description" />
         <PriceProduct :price="product.price" :gender="gender" />
         <div class="container-btn">
-          <ButtonProduct btnType="solid" :gender="gender">Buy Now</ButtonProduct>
+          <ButtonProduct btnType="solid" :gender="gender"
+            :product="product" @buyNowEvent="triggerBuyNow">
+            Buy Now
+          </ButtonProduct>
           <ButtonProduct btnType="outline" :gender="gender" @nextProductEvent="triggerNextProduct">
             Next Product
           </ButtonProduct>
@@ -87,6 +90,9 @@ export default {
   methods: {
     triggerNextProduct() {
       this.$emit('nextProductEvent');
+    },
+    triggerBuyNow() {
+      this.$emit('buyNowEvent');
     },
   },
   computed: {

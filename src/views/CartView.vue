@@ -1,7 +1,7 @@
 <template>
   <div :class="`cart-view bg-${theme}-${gender}`">
-    <NavbarProduct :gender="gender" :theme="theme" @themeEvent="setTheme" />
-    <CardCart />
+    <NavbarProduct :gender="gender" :theme="theme" :totalCart="totalCart" @themeEvent="setTheme" />
+    <CardCart :cart="cart" @deteleCartIdEvent="deteleCartId" />
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
     return {
       theme: localStorage.getItem('theme') || 'light',
       gender: localStorage.getItem('gender') || 'other',
+      cart: JSON.parse(localStorage.getItem('cart')) || [],
     };
   },
 
@@ -29,10 +30,23 @@ export default {
 
   },
 
+  computed: {
+    totalCart() {
+      if (this.cart.length === 0) {
+        return 0;
+      }
+      return this.cart.length;
+    },
+  },
+
   methods: {
     setTheme(theme) {
       this.theme = theme;
       localStorage.setItem('theme', theme);
+    },
+    deteleCartId(id) {
+      const newCart = this.cart.filter((product) => product.id !== id);
+      localStorage.setItem('cart', JSON.stringify(newCart));
     },
   },
 };

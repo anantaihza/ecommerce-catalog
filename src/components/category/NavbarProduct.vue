@@ -21,7 +21,7 @@
         <li>
           <router-link to="/cart" :class="`btn-nav color-${gender}`">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="badge">1</span>
+            <span v-if="totalCart > 0" class="badge">{{ totalCart }}</span>
           </router-link>
         </li>
       </ul>
@@ -39,6 +39,10 @@ export default {
       validator(value) {
         return ['men', 'women', 'other'].includes(value);
       },
+    },
+    totalCart: {
+      type: Number,
+      required: true,
     },
     theme: {
       type: String,

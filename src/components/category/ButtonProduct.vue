@@ -1,7 +1,12 @@
 <template>
-  <button :class="`btn btn-${btnType}-${gender}`" @click="triggerNextProduct">
-    <slot></slot>
-  </button>
+    <button v-if="btnType === 'outline'"
+      :class="`btn btn-${btnType}-${gender}`" @click="triggerNextProduct">
+      <slot></slot>
+    </button>
+    <button v-else-if="btnType === 'solid'"
+      :class="`btn btn-${btnType}-${gender}`" @click="triggerBuyNow">
+      <slot></slot>
+    </button>
 </template>
 
 <script>
@@ -16,6 +21,9 @@ export default {
         return ['solid', 'outline'].includes(value);
       },
     },
+    product: {
+      type: Object,
+    },
     gender: {
       type: String,
       required: true,
@@ -24,7 +32,6 @@ export default {
 
   data() {
     return {
-
     };
   },
 
@@ -35,6 +42,9 @@ export default {
   methods: {
     triggerNextProduct() {
       this.$emit('nextProductEvent');
+    },
+    triggerBuyNow() {
+      this.$emit('buyNowEvent');
     },
   },
 };

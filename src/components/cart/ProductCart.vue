@@ -1,20 +1,20 @@
 <template>
   <div class="product-cart">
     <div class="image">
-      <img src="https://picsum.photos/200" alt="">
+      <img :src="product.image" :alt="product.title">
     </div>
     <div class="title-price">
-      <h4 class="title">Product dsfffd fsdfd sdfds s dsfffd</h4>
-      <p class="category">men</p>
+      <h4 class="title">{{ product.title }}</h4>
+      <p class="category">{{ product.category }}</p>
     </div>
     <div class="price">
-      <p>$300</p>
+      <p>${{ product.price }}</p>
     </div>
     <div class="quantity">
-      <p>3</p>
+      <p>{{ quantity }}</p>
     </div>
     <div class="delete-product">
-      <button class="btn-delete">
+      <button class="btn-delete" @click="triggerDeteleCartId">
         <i class="fa-solid fa-trash"></i>
       </button>
     </div>
@@ -24,6 +24,16 @@
 <script>
 export default {
   name: 'EcommerceProductCart',
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+    },
+  },
 
   data() {
     return {
@@ -36,7 +46,10 @@ export default {
   },
 
   methods: {
-
+    triggerDeteleCartId() {
+      this.$emit('deteleCartIdEvent', this.product.id);
+      window.location.reload();
+    },
   },
 };
 </script>

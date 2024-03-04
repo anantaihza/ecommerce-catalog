@@ -1,10 +1,14 @@
 <template>
   <div class="category-view">
-    <NavbarProduct :gender="gender" :theme="theme" @themeEvent="setTheme" />
+    <NavbarProduct :gender="gender" :theme="theme"
+      :totalCart="totalCart" @themeEvent="setTheme" />
     <main :class="`background bg-${theme}-${gender}`">
-      <CardProduct :product="product"
-        :totalProduct="totalProduct" :gender="gender" :isLoading="isLoading"
-        @nextProductEvent="nextProduct" />
+      <CardProduct
+        :product="product"
+        :totalProduct="totalProduct"
+        :gender="gender" :isLoading="isLoading"
+        @nextProductEvent="nextProduct"
+        @buyNowEvent="addProductToCart" />
       <div :class="`background-bottom bg-${theme}`"></div>
     </main>
   </div>
@@ -29,11 +33,20 @@ export default {
       theme: localStorage.getItem('theme') || 'light',
       isLoading: true,
       totalProduct: 0,
+      cart: JSON.parse(localStorage.getItem('cart')) || [],
     };
   },
   mounted() {
     this.getProduct(this.product_id);
     this.getAllProduct();
+  },
+  computed: {
+    totalCart() {
+      if (this.cart.length === 0) {
+        return 0;
+      }
+      return this.cart.length;
+    },
   },
   methods: {
     async getProduct(id) {
@@ -70,6 +83,14 @@ export default {
       }
       return star;
     },
+    setGender(gender) {
+      this.gender = gender;
+      localStorage.setItem('gender', gender);
+    },
+    setTheme(theme) {
+      this.theme = theme;
+      localStorage.setItem('theme', theme);
+    },
     nextProduct() {
       this.isLoading = true;
       this.setGender('other');
@@ -81,13 +102,9 @@ export default {
       }
       this.getProduct(this.product_id);
     },
-    setGender(gender) {
-      this.gender = gender;
-      localStorage.setItem('gender', gender);
-    },
-    setTheme(theme) {
-      this.theme = theme;
-      localStorage.setItem('theme', theme);
+    addProductToCart() {
+      this.cart.push(this.product);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     },
   },
 };
